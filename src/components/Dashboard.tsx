@@ -7,7 +7,7 @@ import {
 
 const stats = [
   {
-    title: "Active Orders",
+    title: "Ordini Attivi",
     value: "24",
     icon: Package,
     trend: "+12%",
@@ -15,7 +15,7 @@ const stats = [
     iconColor: "text-blue-500",
   },
   {
-    title: "On-Time Delivery",
+    title: "Consegne Puntuali",
     value: "96%",
     icon: Clock,
     trend: "+3%",
@@ -23,15 +23,15 @@ const stats = [
     iconColor: "text-green-500",
   },
   {
-    title: "Revenue",
-    value: "$12.4k",
+    title: "Fatturato",
+    value: "€12.4k",
     icon: TrendingUp,
     trend: "+8%",
     color: "bg-purple-50",
     iconColor: "text-purple-500",
   },
   {
-    title: "Active Vehicles",
+    title: "Veicoli Attivi",
     value: "18",
     icon: BarChart3,
     trend: "-2",
@@ -45,10 +45,10 @@ const Dashboard = () => {
     <div className="animate-fade-in">
       <div className="mb-8">
         <h1 className="text-4xl font-display font-semibold text-gray-900 mb-2">
-          Welcome back
+          Benvenuto
         </h1>
         <p className="text-gray-600">
-          Here's what's happening with your transport operations today.
+          Ecco cosa sta succedendo oggi con le tue operazioni di trasporto.
         </p>
       </div>
 
@@ -58,13 +58,15 @@ const Dashboard = () => {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className={`p-3 rounded-lg ${stat.color}`}>
                   <Icon className={`w-6 h-6 ${stat.iconColor}`} />
                 </div>
-                <span className="text-sm font-medium text-gray-500">
+                <span className={`text-sm font-medium ${
+                  stat.trend.startsWith('+') ? 'text-green-500' : 'text-red-500'
+                }`}>
                   {stat.trend}
                 </span>
               </div>
@@ -77,13 +79,24 @@ const Dashboard = () => {
         })}
       </div>
 
-      <div className="bg-white rounded-xl p-6 shadow-sm">
-        <h2 className="text-xl font-display font-semibold text-gray-900 mb-4">
-          Recent Activity
-        </h2>
-        <p className="text-gray-600">
-          Activity feed will be implemented in the next iteration.
-        </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h2 className="text-xl font-display font-semibold text-gray-900 mb-4">
+            Attività Recenti
+          </h2>
+          <p className="text-gray-600">
+            Il feed delle attività sarà implementato nella prossima iterazione.
+          </p>
+        </div>
+        
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h2 className="text-xl font-display font-semibold text-gray-900 mb-4">
+            Statistiche Settimanali
+          </h2>
+          <p className="text-gray-600">
+            Le statistiche saranno implementate nella prossima iterazione.
+          </p>
+        </div>
       </div>
     </div>
   );

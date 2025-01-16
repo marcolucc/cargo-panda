@@ -33,7 +33,7 @@ export default {
           foreground: "#1a1c1e",
         },
         accent: {
-          DEFAULT: "#14b8a6",
+          DEFAULT: "#0EA5E9",
           foreground: "#ffffff",
         },
         muted: {
@@ -59,8 +59,8 @@ export default {
           to: { height: "0" },
         },
         "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "slide-in": {
           "0%": { transform: "translateX(-100%)" },
